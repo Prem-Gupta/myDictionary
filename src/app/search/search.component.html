@@ -1,0 +1,73 @@
+<!-- <div class="jumbotron-fluid" align="center">
+    <div class="container">
+        <div>
+            <h4 *ngIf="word">Details of {{ word }} in English:</h4>
+        </div>
+    </div>
+</div> -->
+<!-- <div class="container">
+    <div class="row section1">
+        <div class="col-lg-4 col-md-4 col-sm-4 sentences">
+            <h4 >sentences :</h4>
+            <div *ngIf="sentences">
+                <div *ngFor = "let sen of sentences">
+                       <p>{{ sen.text }}</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 synonims">
+            <h4 *ngIf="word">Synonims:</h4>
+            <p *ngIf="syno">
+                {{syno.text}}
+            </p>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 antonims">
+            <h4 *ngIf="word">Antonims :</h4>
+            <p *ngIf="anto">
+                {{anto.text}}
+            </p>
+        </div>
+
+    </div>
+</div> -->
+<!-- <div>
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <h4>Sentences</h4>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <h4>Synonims</h4>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <h4>Antonims</h4>
+        </div>
+
+    </div>
+</div> -->
+
+<div class="container">
+    <div class="row section1">
+        <div class="col-lg-4 ">
+            <div *ngIf="sentences">
+                <p>{{ sentences.text }}</p>
+            </div>
+        </div>
+        <div class="col-lg-4 ">
+            <div *ngIf="syno">
+                <p>
+                    {{syno.text}}
+                </p>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 antonims">
+            <div *ngIf="anto">
+                <p>
+                    {{anto.text}}
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
