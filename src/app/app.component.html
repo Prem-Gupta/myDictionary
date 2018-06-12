@@ -9,7 +9,10 @@
             <div class="col-md-10">
                 <form #searchForm="ngForm" autocomplete="off">
                     <div class="autocomplete">
-                        <input type="text" name="WordDescription" [(ngModel)]="WordDescription" #title="ngModel" class="form-control" placeholder="Search word..."
+                        <input type="text" name="WordDescription"
+                               (input)="showSuggestion()"
+                               [(ngModel)]="WordDescription" #title="ngModel"
+                               class="form-control" placeholder="Search word..."
                             required>
                     </div>
 
@@ -21,6 +24,13 @@
         </div>
     </div>
 </div>
+<div *ngIf="suggestionArray.length>0" >
+  Suggestions
+  <ul>
+    <li *ngFor="let items of suggestionArray">{{items}} </li>
+  </ul>
+</div>
+
 <ng-container>
     <div *ngIf="word">
         <app-search [Words]="word"> </app-search>

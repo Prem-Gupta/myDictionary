@@ -10,7 +10,6 @@ import { WordService } from './word.service';
 
 import { HttpClient,HttpErrorResponse } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpHeaders,HttpHeaderResponse} from '@angular/common/http';
 
 
 @NgModule({
@@ -33,7 +32,7 @@ import { HttpHeaders,HttpHeaderResponse} from '@angular/common/http';
   //   FormsModule,
   //   ReactiveFormsModule
   // ],
- 
+
   providers: [WordService],
   bootstrap: [AppComponent]
 })
