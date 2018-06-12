@@ -27,8 +27,8 @@
               "/home/mwf33/Documents/Prem_frontend/Project/project_1/myDictionary/node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
-              "/home/mwf33/Documents/Prem_frontend/Project/project_1/myDictionary/node_modules/jquery/dist/jquery.min.js",
-              "/home/mwf33/Documents/Prem_frontend/Project/project_1/myDictionary/node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "src/etc/jquery.min.js",
+              "src/etc/bootstrap.min.js"
             ]
           },
           "configurations": {
