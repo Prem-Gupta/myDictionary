@@ -19,8 +19,6 @@ export class WordService {
 
   constructor(private _http: HttpClient) { }
 
-
-
   public searchWord1(word_id): any {
 
     var headers = new HttpHeaders().set('Accept', 'application/json')
