@@ -16,7 +16,6 @@ export class WordService {
 
   public app_id = '1e166b52';
   public app_key = 'd9d6caa8dd39cadd9c001ed14e71a3a9';
-  public baseurl = 'https://od-api.oxforddictionaries.com:443';
 
 
   constructor(private _http: HttpClient) { }
@@ -28,7 +27,7 @@ export class WordService {
     var headers = new HttpHeaders().set('Accept', 'application/json')
       .set('app_id', this.app_id)
       .set('app_key', this.app_key);
-    var word = this._http.get(this.baseurl+ '/api/v1/search/en/translations=es?q=' + word_id.toLowerCase() + '&prefix=false',
+    var word = this._http.get('/api/v1/search/en/translations=es?q=' + word_id.toLowerCase() + '&prefix=false',
       {headers: headers})
     return word;
 
@@ -38,7 +37,7 @@ export class WordService {
     var headers = new HttpHeaders().set('Accept', 'application/json')
       .set('app_id', this.app_id)
       .set('app_key', this.app_key);
-    var sentences = this._http.get(this.baseurl+ '/api/v1/entries/en/' + word_id.toLowerCase() + '/sentences', {headers: headers})
+    var sentences = this._http.get('/api/v1/entries/en/' + word_id.toLowerCase() + '/sentences', {headers: headers})
     return sentences;
   }
 
@@ -47,7 +46,7 @@ export class WordService {
     var headers = new HttpHeaders().set('Accept', 'application/json')
       .set('app_id', this.app_id)
       .set('app_key', this.app_key);
-    var synonyms = this._http.get(this.baseurl + '/api/v1/entries/en/' + word_id.toLowerCase() + '/synonyms', {headers: headers})
+    var synonyms = this._http.get('/api/v1/entries/en/' + word_id.toLowerCase() + '/synonyms', {headers: headers})
     return synonyms;
   }
 
@@ -56,7 +55,7 @@ export class WordService {
     var headers = new HttpHeaders().set('Accept', 'application/json')
       .set('app_id', this.app_id)
       .set('app_key', this.app_key);
-    var antonyms = this._http.get(this.baseurl + '/api/v1/entries/en/' + word_id.toLowerCase() + '/antonyms', {headers: headers})
+    var antonyms = this._http.get('/api/v1/entries/en/' + word_id.toLowerCase() + '/antonyms', {headers: headers})
     return antonyms;
   }
 
