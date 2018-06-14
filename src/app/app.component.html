@@ -8,47 +8,35 @@
         <div class="row">
             <div class="col-md-10">
                 <form #searchForm="ngForm" autocomplete="off">
-                    <div class="autocomplete">
-                        <input type="text" name="WordDescription"
-                               (input)="showSuggestion()"
-                               [(ngModel)]="WordDescription" #title="ngModel"
-                               class="form-control" placeholder="Search word..."
-                            required>
+                    <div >
+                        <input  type="text" name="WordDescription" (input)="showSuggestion()"
+                         [(ngModel)]="WordDescription" #title="ngModel" class="form-control"
+                            placeholder="Search word..." required>
+
+                        <div *ngIf="suggestionArray.length>0">
+                            <ul  class="myUL">
+                                <li (click)="selectValue(items)" *ngFor="let items of suggestionArray">
+                                    <a>{{items}}</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
 
                 </form>
             </div>
             <div class="col-md-2">
-                <button type="submit" class="btn btn-default" (click)="wordSearch()">Search</button>
+                <button type="submit" class="btn btn-default"  (click)="wordSearch()">Search</button>
             </div>
         </div>
+
+       
     </div>
 </div>
 
-<div *ngIf="suggestionArray.length>0" >
-  Suggestions
-  <ul>
-    <li *ngFor="let items of suggestionArray">{{items}} </li>
-  </ul>
-</div>
 
-<ng-container>
+
     <div *ngIf="word">
-        <app-search [Words]="word"> </app-search>
+        <app-search [Sentence]="result" [word]="word"  ></app-search>
     </div>
-
-    <div *ngIf="currentWord1">
-        <app-search *ngFor="let sentences of currentWord1" [Sentence]="sentences"></app-search>
-    </div>
-
-    <div *ngIf="synonimsWord">
-        <app-search *ngFor="let syno of synonimsWord" [Synomis]="syno"></app-search>
-    </div>
-
-    <div *ngIf="antonimsWord">
-        <app-search *ngFor="let anto of antonimsWord" [Antonims]="anto"></app-search>
-    </div>
-</ng-container>
-
 
 <router-outlet></router-outlet>

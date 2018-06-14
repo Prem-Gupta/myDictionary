@@ -1,4 +1,4 @@
-import { Component, OnInit,Input,Output } from '@angular/core';
+import { Component, OnInit,OnChanges, Input } from '@angular/core';
 
 @Component({
   selector: 'app-search',
@@ -6,33 +6,24 @@ import { Component, OnInit,Input,Output } from '@angular/core';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  
-   @Input() Words :any;
-   @Input() Sentence : any=[];
-   @Input() Synomis : any= [];
-   @Input() Antonims :any = [];
 
-   public word: string;
-   public sentences : any=[];
-   public syno:any = [];
-   public anto : any = [];
 
-   constructor() {}
-   
-   ngOnInit() {
-    this.word = this.Words;
-    this.sentences = this.Sentence;
-    this.syno = this.Synomis;
-    this.anto = this.Antonims;
+  @Input() Sentence: any = [];
+  @Input() word: any = [];
+  public result: any;
+  public Word :any
 
-   // console.log(this.sentences);
-   }
-   
-  
-  
-  
+  constructor() { }
+
+  ngOnInit() {
+    this.result = this.Sentence;
   
   }
-  
+
+  ngOnChanges(){
+    this.result = this.Sentence;  
+  }
+}
+
 
 

@@ -1,7 +1,31 @@
 .header{
     background-color: #04192E;
     display: block;
-    padding: 3%;
+    padding: 2%;
     color:white;
     font-size: 26px;
+    margin-bottom: 0%;
+    margin-top: 0%;
 }
+
+.myUL {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .myUL li a {
+    border: 1px solid #ddd;
+    margin-top: -1px; /* Prevent double borders */
+    background-color: #f6f6f6;
+    padding: 6px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: block;
+    cursor: pointer;
+  }
+  .header1{
+    margin-top: 2%;
+    margin-bottom: 0%;
+  }

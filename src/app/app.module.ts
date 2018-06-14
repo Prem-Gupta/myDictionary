@@ -23,16 +23,10 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-     {path:'search',component:SearchComponent}
+     {path:'search',component:SearchComponent},
+     {path : 'home',component:AppComponent}
     ]),
   ],
-  // exports: [
-  //   AppComponent,
-  //   BrowserModule,
-  //   FormsModule,
-  //   ReactiveFormsModule
-  // ],
-
   providers: [WordService],
   bootstrap: [AppComponent]
 })

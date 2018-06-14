@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {WordService} from './word.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { WordService } from './word.service';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 
 @Component({
@@ -11,18 +12,19 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class AppComponent {
 
   constructor(private wordsService: WordService,
-              private _route: ActivatedRoute,
-              private router: Router) {
+    private _route: ActivatedRoute,
+    private router: Router) {
   }
 
 
   public WordDescription: string;
   public currentWord: any = [];
-  public word: string;
+  public word: any=[];
   suggestionArray: string[] = [];
   public currentWord1: any = [];
   public synonimsWord: any = [];
   public antonimsWord: any = [];
+  result: any;
 
   ngOnit() {
   }
@@ -32,7 +34,9 @@ export class AppComponent {
     this.wordSearch2();
     this.wordSearch3();
     this.wordSearch4();
-
+    this.suggestionArray = [];
+    this.result = {};
+    this.word=[];
   }
 
   public wordSearch1(): any {
@@ -42,9 +46,6 @@ export class AppComponent {
         this.currentWord = data.results[0];
         this.word = this.currentWord.word;
         // console.log(this.word);
-        setTimeout(() => {
-          this.router.navigate(['/search'])
-        }, 1000)
       },
       error => {
         console.log(error);
@@ -58,6 +59,7 @@ export class AppComponent {
     this.wordsService.searchWord2(word_id).subscribe(
       data => {
         this.currentWord1 = data.results[0].lexicalEntries[0].sentences;
+        this.result['sentence'] = this.currentWord1;
         //  console.log(this.currentWord1);
         setTimeout(() => {
           this.router.navigate(['/search'])
@@ -76,10 +78,7 @@ export class AppComponent {
     this.wordsService.searchWord3(word_id).subscribe(
       data => {
         this.synonimsWord = data.results[0].lexicalEntries[0].entries[0].senses[0].synonyms;
-        //  console.log(this.synonimsWord);
-        setTimeout(() => {
-          this.router.navigate(['/search'])
-        }, 1000)
+        this.result['synonym'] = this.synonimsWord;
       },
 
       error => {
@@ -96,9 +95,7 @@ export class AppComponent {
       data => {
         this.antonimsWord = data.results[0].lexicalEntries[0].entries[0].senses[0].antonyms;
         //  console.log(this.antonimsWord);
-        setTimeout(() => {
-          this.router.navigate(['/search'])
-        }, 1000)
+        this.result['antonym'] = this.antonimsWord;
       },
 
       error => {
@@ -110,23 +107,33 @@ export class AppComponent {
 
 
   showSuggestion() {
-    if (this.WordDescription.length > 3) {
+    if (this.WordDescription.length >= 3) {
       this.wordsService.searchWord1(this.WordDescription).subscribe(
         data => {
           this.suggestionArray.length = 0;
-          if(data.results){
-            data.results.map(item=>{
+          if (data.results) {
+            data.results.map(item => {
               this.suggestionArray.push(item.word);
             })
           }
-          console.log(this.suggestionArray,123)
+          // console.log(this.suggestionArray,123)
         },
         error => {
           console.log(error);
         }
       )
     }
-    else  this.suggestionArray.length = 0;
+    else this.suggestionArray.length = 0;
   }
 
+  selectValue(value) {
+
+    this.WordDescription = value;
+    this.suggestionArray = [];
+
+  }
+
+
 }
+
+
