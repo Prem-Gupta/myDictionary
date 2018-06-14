@@ -1,9 +1,0 @@
-
-{
-  "/api/*": {
-    "target": "https://od-api.oxforddictionaries.com:443",
-    "secure": false,
-    "logLevel": "debug",
-    "changeOrigin": false
-  }
-}
